@@ -40,7 +40,7 @@ local function RandomMessage(User,Channel)
 		"I have two penis. Deal with it.",
 		"Where is my penis?",
 		"Bullshit",
-		"I'm having SEX with my mom"
+		"I'm having SEX with my mom",
 		"Suck my dick",
 		"<@" .. User.id .. "> I will touch your fucking dick.",
 		"<@" .. User.id .. "> ***SUCK MY DICK***"
