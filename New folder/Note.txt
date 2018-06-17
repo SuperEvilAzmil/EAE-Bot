@@ -1,5 +1,0 @@
-Outline Object
-
-Width		- 20
-Softness	- 250
-Color		- 0,200,255
