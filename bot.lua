@@ -6,6 +6,7 @@ Client:on('ready', function()
 end)
 
 Client:on('messageCreate', function(Message)
+	print("Content: ", Message.content)
 	if Message.content == '!ping' then
 		Message.channel:send('I will raip you, Pedo.')
 	elseif Message.content == '!on' then
