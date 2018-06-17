@@ -18,18 +18,19 @@ local Games = {
 	"with smoked Dick"
 }
 
-Client:on('ready', function()
-	print('Logged in as '.. Client.user.username)
-
-	--[[sleep(5)
-	print('Done sleep')
-
+local function RandomPlayGame()
+	sleep(15)
 	while true do
 		Client:setGame(Games[math.random(1,#Games)])
 		local Time = math.random(5,120)
 		print('Time until the next Game: ' .. Time)
 		sleep(Time)
-	end]]
+	end
+end
+
+Client:on('ready', function()
+	print('Logged in as '.. Client.user.username)
+	RandomPlayGame()
 end)
 
 Client:on('messageCreate', function(Message)
