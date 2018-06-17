@@ -25,9 +25,10 @@ Client:on('ready', function()
 	print('Done sleep')
 
 	while true do
-		print('While Loop')
 		Client:setGame(Games[math.random(1,#Games)])
-		sleep(5+(math.random()*30))
+		local Time = math.random(5,120)
+		print('Time until the next Game: ' .. Time)
+		sleep(Time)
 	end
 end)
 
