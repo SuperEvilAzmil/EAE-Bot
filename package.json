@@ -1,0 +1,12 @@
+{
+    "name": "Test",
+    "description": "Test",
+    "version": "0.0.0",
+    "main": "bot.lua",
+    "scripts": {
+        "start": "luvit bot.lua"
+    },
+    "dependencies": {
+        "luvit": "0.0.0"
+    }
+}
