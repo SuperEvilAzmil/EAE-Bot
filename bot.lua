@@ -38,6 +38,7 @@ local function RandomMessage(User,Channel)
 		"I have two penis. Deal with it.",
 		"Where is my penis?",
 		"Bullshit",
+		"I'm having SEX with my mom",
 		"<@" .. User.id .. "> I will touch your fucking dick.",
 		"<@" .. User.id .. "> ***SUCK MY DICK***",
 	}
@@ -62,8 +63,8 @@ Client:on('messageCreate', function(Message)
 end)
 
 Client:on('typingStart', function(UserId,ChannelId,Timestamp)
-	print(Time())
-	print(NextGameChange)
+	--print(Time())
+	--print(NextGameChange)
 	if Time() > NextGameChange then
 		NextGameChange = Time() + (math.random(10,120))
 		Client:setGame(Games[math.random(1,#Games)])
@@ -71,8 +72,8 @@ Client:on('typingStart', function(UserId,ChannelId,Timestamp)
 	local User = Client:getUser(UserId)
 	local Channel = Client:getChannel(ChannelId)
 	local Chance = (math.random()*100)
-	print('Chance: ' .. Chance)
-	if User and Channel and 10 > Chance then
+	--print('Chance: ' .. Chance)
+	if User and Channel and 19 > Chance then
 		wait(math.random(1,5))
 		RandomMessage(User,Channel)
 	end
