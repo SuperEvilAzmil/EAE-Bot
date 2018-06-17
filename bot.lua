@@ -1,5 +1,7 @@
+print('Requiring')
 local Discordia = require('discordia')
 local Client = Discordia.Client()
+print('Done')
 
 function sleep(n)
 	os.execute("sleep " .. tonumber(n))
