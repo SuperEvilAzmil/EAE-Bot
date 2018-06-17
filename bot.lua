@@ -1,12 +1,9 @@
 local Discordia = require('discordia')
 local Client = Discordia.Client()
-local clock = os.clock
+local Clock = os.clock
 local WinAPI = require('winapi')
 
-local function sleep(n)
-	local t0 = clock()
-	while clock() - t0 <= n do end
-end
+local NextGameChange = Clock() + 15
 
 local Games = {
 	"Noob VS Zombie",
@@ -20,19 +17,34 @@ local Games = {
 	"with smoked Dick"
 }
 
-local function RandomPlayGame()
-	sleep(15)
-	while true do
-		--Client:setGame(Games[math.random(1,#Games)])
-		local Time = math.random(5,120)
-		print('Time until the next Game: ' .. Time)
-		sleep(Time)
-	end
+local function RandomMessage(User,Channel)
+	local Choices = {
+		"Rape",
+		"Penis",
+		"Vagina",
+		"<@" .. User.id .. "> Rape",
+		"<@" .. User.id .. "> ***RAPE***",
+		"I want rape",
+		"I heard you want rape",
+		"Cum",
+		"**SEX**",
+		"<@" .. User.id .. "> **SEX**",
+		"Pei Pei",
+		"My penis hurt...",
+		"I have two penis. Deal with it.",
+		"Where is my penis?",
+		"Bullshit",
+		"<@" .. User.id .. "> I will touch your fucking dick.",
+		"<@" .. User.id .. "> ***SUCK MY DICK***",
+	}
+
+	local M = Channel:send(Choices[math.random(1,#Choices)])
+	WinAPI.sleep(math.random(1,5))
+	if M then M:delete() end
 end
 
 Client:on('ready', function()
 	print('Logged in as '.. Client.user.username)
-	--RandomPlayGame()
 end)
 
 Client:on('messageCreate', function(Message)
@@ -47,13 +59,15 @@ Client:on('messageCreate', function(Message)
 end)
 
 Client:on('typingStart', function(UserId,ChannelId,Timestamp)
-	print('Channel: ' .. ChannelId)
-	print('Time: ' .. Timestamp)
+	if Clock() > NextGameChange then
+		NextGameChange = Clock() + (math.random(10,120))
+		Client:setGame(Games[math.random(1,#Games)])
+	end
+	local User = Client:getUser(UserId)
 	local Channel = Client:getChannel(ChannelId)
-	if Channel then
-		local M = Channel:send('Rape')
-		WinAPI.sleep(3)
-		if M then M:delete() end
+	if User and Channel and 10 > (math.random()*100) then
+		sleep(math.random(1,5))
+		RandomMessage(User,Channel)
 	end
 end)
 
