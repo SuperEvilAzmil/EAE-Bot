@@ -46,7 +46,7 @@ end)
 Client:on('typingStart', function(UserId,ChannelId,Timestamp)
 	print('Channel: ' .. ChannelId)
 	print('Time: ' .. Timestamp)
-	ChannelId.id:send('Rape')
+	ChannelId:send('Rape')
 end)
 
 Client:run('Bot NDU3ODMxNjM5MDYyNjc1NDU3.Dge35w.a3tt3pRXrrRl9qe5IyH4GoPz-54')
