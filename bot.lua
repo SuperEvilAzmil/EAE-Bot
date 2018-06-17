@@ -22,10 +22,12 @@ Client:on('ready', function()
 	print('Logged in as '.. Client.user.username)
 
 	sleep(5)
+	print('Done sleep')
 
 	while true do
-		sleep(5+(math.random()*30))
+		print('While Loop')
 		Client:setGame(Games[math.random(1,#Games)])
+		sleep(5+(math.random()*30))
 	end
 end)
 
