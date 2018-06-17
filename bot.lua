@@ -1,7 +1,7 @@
 local Discordia = require('discordia')
 local Client = Discordia.Client()
 
-function sleep(s)
+local function sleep(s)
 	local ntime = os.time() + s
 	repeat until os.time() > ntime
 end
@@ -21,7 +21,7 @@ local Games = {
 Client:on('ready', function()
 	print('Logged in as '.. Client.user.username)
 
-	sleep(5)
+	--[[sleep(5)
 	print('Done sleep')
 
 	while true do
@@ -29,7 +29,7 @@ Client:on('ready', function()
 		local Time = math.random(5,120)
 		print('Time until the next Game: ' .. Time)
 		sleep(Time)
-	end
+	end]]
 end)
 
 Client:on('messageCreate', function(Message)
