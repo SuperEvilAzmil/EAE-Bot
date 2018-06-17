@@ -2,8 +2,8 @@ local Discordia = require('discordia')
 local Client = Discordia.Client()
 
 function sleep(s)
-	local ntime = os.clock() + s
-	repeat until os.clock() > ntime
+	local ntime = os.time() + s
+	repeat until os.time() > ntime
 end
 
 local Games = {
