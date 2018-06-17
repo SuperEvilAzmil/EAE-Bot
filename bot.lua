@@ -1,10 +1,6 @@
 local Discordia = require('discordia')
 local Client = Discordia.Client()
 
-function sleep(n)
-	if n > 0 then os.execute("ping -n " .. tonumber(n+1) .. " localhost > NUL") end
-end
-
 local Games = {
 	"Noob VS Zombie",
 	"Zombie Town",
@@ -34,13 +30,9 @@ end)
 
 Client:run('Bot NDU3ODMxNjM5MDYyNjc1NDU3.Dge35w.a3tt3pRXrrRl9qe5IyH4GoPz-54')
 
-sleep(5)
+--[[ sleep(5)
 
 while true do
 	sleep(5+(math.random()*30))
 	Client:setGame(Games[math.random(1,#Games)])
-<<<<<<< HEAD
-end
-=======
-end
->>>>>>> 0e795b1049a1c7bace65f7213cd137f5d1d0eca8
+end ]]
