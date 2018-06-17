@@ -1,13 +1,13 @@
 local Discordia = require('discordia')
 local Client = Discordia.Client()
-local Clock = os.clock
+local Time = os.time
 
 function wait(s)
 	local ntime = os.clock() + s
 	repeat until os.clock() > ntime
 end
 
-local NextGameChange = Clock() + 15
+local NextGameChange = Time() + 15
 
 local Games = {
 	"Noob VS Zombie",
@@ -62,10 +62,10 @@ Client:on('messageCreate', function(Message)
 end)
 
 Client:on('typingStart', function(UserId,ChannelId,Timestamp)
-	print(Clock())
+	print(Time())
 	print(NextGameChange)
-	if Clock() > NextGameChange then
-		NextGameChange = Clock() + (math.random(10,120))
+	if Time() > NextGameChange then
+		NextGameChange = Time() + (math.random(10,120))
 		Client:setGame(Games[math.random(1,#Games)])
 	end
 	local User = Client:getUser(UserId)
