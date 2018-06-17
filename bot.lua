@@ -3,8 +3,10 @@ local Client = Discordia.Client()
 local Time = os.time
 
 function wait(s)
-	local ntime = os.clock() + s
-	repeat until os.clock() > ntime
+	Client:setStatus('dnd')
+	local ntime = os.time() + s
+	repeat until os.time() > ntime
+	Client:setStatus('online')
 end
 
 local NextGameChange = Time() + 15
@@ -38,7 +40,8 @@ local function RandomMessage(User,Channel)
 		"I have two penis. Deal with it.",
 		"Where is my penis?",
 		"Bullshit",
-		"I'm having SEX with my mom",
+		"I'm having SEX with my mom"
+		"Suck my dick",,
 		"<@" .. User.id .. "> I will touch your fucking dick.",
 		"<@" .. User.id .. "> ***SUCK MY DICK***",
 	}
@@ -50,16 +53,17 @@ end
 
 Client:on('ready', function()
 	print('Logged in as '.. Client.user.username)
+	Client:setGame(nil)
 end)
 
 Client:on('messageCreate', function(Message)
 	if Message.content == '!ping' then
 		Message.channel:send('I will raip you, Pedo.')
-	elseif Message.content == '!on' then
+	--[[elseif Message.content == '!on' then
 		Client:setStatus('online')
 	elseif Message.content == '!busy' then
 		Client:setStatus('dnd')
-	end
+	end]]
 end)
 
 Client:on('typingStart', function(UserId,ChannelId,Timestamp)
@@ -73,7 +77,7 @@ Client:on('typingStart', function(UserId,ChannelId,Timestamp)
 	local Channel = Client:getChannel(ChannelId)
 	local Chance = (math.random()*100)
 	--print('Chance: ' .. Chance)
-	if User and Channel and 19 > Chance then
+	if User and Channel and 18 > Chance then
 		wait(math.random(1,5))
 		RandomMessage(User,Channel)
 	end
