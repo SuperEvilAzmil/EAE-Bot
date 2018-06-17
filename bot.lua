@@ -5,9 +5,9 @@ Client:on('ready', function()
 	print('Logged in as '.. Client.user.username)
 end)
 
-Client:on('messageCreate', function(message)
-	if message.content == '!ping' then
-		message.channel:send('Pong!')
+Client:on('messageCreate', function(Message)
+	if Message.content == '!ping' then
+		Message.channel:send('I will raip you, Pedo.')
 	end
 end)
 
