@@ -1,5 +1,10 @@
 local Discordia = require('discordia')
 local Client = Discordia.Client()
+local Socket = require("socket")
+
+function sleep(sec)
+    Socket.sleep(sec)
+end
 
 local Games = {
 	"Noob VS Zombie",
