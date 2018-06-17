@@ -2,7 +2,7 @@ local Discordia = require('discordia')
 local Client = Discordia.Client()
 
 function sleep(n)
-	os.execute("sleep " .. tonumber(n))
+	os.execute("timeout " .. tonumber(n))
 end
 
 local Games = {
