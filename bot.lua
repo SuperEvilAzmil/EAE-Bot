@@ -62,8 +62,8 @@ Client:on('messageCreate', function(Message)
 	--[[elseif Message.content == '!on' then
 		Client:setStatus('online')
 	elseif Message.content == '!busy' then
-		Client:setStatus('dnd')
-	end]]
+		Client:setStatus('dnd')]]
+	end
 end)
 
 Client:on('typingStart', function(UserId,ChannelId,Timestamp)
