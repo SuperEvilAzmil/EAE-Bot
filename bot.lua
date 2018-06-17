@@ -1,9 +1,10 @@
 local Discordia = require('discordia')
 local Client = Discordia.Client()
-local Socket = require("socket")
+local Clock = os.clock
 
-function sleep(sec)
-    Socket.sleep(sec)
+function sleep(n)  -- seconds
+	local T = Clock()
+	while Clock() - T <= n do end
 end
 
 local Games = {
