@@ -1,6 +1,11 @@
 local Discordia = require('discordia')
 local Client = Discordia.Client()
 
+function sleep(s)
+	local ntime = os.clock() + s
+	repeat until os.clock() > ntime
+end
+
 local Games = {
 	"Noob VS Zombie",
 	"Zombie Town",
@@ -15,6 +20,13 @@ local Games = {
 
 Client:on('ready', function()
 	print('Logged in as '.. Client.user.username)
+
+	sleep(5)
+
+	while true do
+		sleep(5+(math.random()*30))
+		Client:setGame(Games[math.random(1,#Games)])
+	end
 end)
 
 Client:on('messageCreate', function(Message)
@@ -29,10 +41,3 @@ Client:on('messageCreate', function(Message)
 end)
 
 Client:run('Bot NDU3ODMxNjM5MDYyNjc1NDU3.Dge35w.a3tt3pRXrrRl9qe5IyH4GoPz-54')
-
---[[ sleep(5)
-
-while true do
-	sleep(5+(math.random()*30))
-	Client:setGame(Games[math.random(1,#Games)])
-end ]]
