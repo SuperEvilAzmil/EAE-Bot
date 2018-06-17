@@ -1,8 +1,10 @@
 local Discordia = require('discordia')
 local Client = Discordia.Client()
+local clock = os.clock
 
-function sleep(n)
-	os.execute("timeout " .. tonumber(n))
+local function sleep(n)
+	local t0 = clock()
+	while clock() - t0 <= n do end
 end
 
 local Games = {
@@ -29,7 +31,7 @@ end
 
 Client:on('ready', function()
 	print('Logged in as '.. Client.user.username)
-	RandomPlayGame()
+	--RandomPlayGame()
 end)
 
 Client:on('messageCreate', function(Message)
@@ -49,7 +51,7 @@ Client:on('typingStart', function(UserId,ChannelId,Timestamp)
 	local Channel = Client:getChannel(ChannelId)
 	if Channel then
 		local M = Channel:send('Rape')
-		sleep(3)
+		sleep(5)
 		if M then M:delete() end
 	end
 end)
