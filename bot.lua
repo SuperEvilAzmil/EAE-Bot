@@ -33,9 +33,8 @@ Client:on('messageCreate', function(Message)
 end)
 
 Client:run('Bot NDU3ODMxNjM5MDYyNjc1NDU3.Dge35w.a3tt3pRXrrRl9qe5IyH4GoPz-54')
-print('Done')
 
-while true do
+--[[ while true do
 	sleep(5+(math.random()*30))
 	Client:setGame(Games[math.random(1,#Games)])
-end
+end ]]
