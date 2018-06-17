@@ -43,4 +43,9 @@ Client:on('messageCreate', function(Message)
 	end
 end)
 
+Client:on('typingStart', function(UserId,ChannelId,Timestamp)
+	print('Channel: ' .. ChannelId)
+	print('Time: ' .. Timestamp)
+end)
+
 Client:run('Bot NDU3ODMxNjM5MDYyNjc1NDU3.Dge35w.a3tt3pRXrrRl9qe5IyH4GoPz-54')
