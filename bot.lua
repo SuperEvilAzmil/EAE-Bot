@@ -1,6 +1,7 @@
 local Discordia = require('discordia')
 local Client = Discordia.Client()
 local clock = os.clock
+local WinAPI = require('winapi')
 
 local function sleep(n)
 	local t0 = clock()
@@ -51,8 +52,7 @@ Client:on('typingStart', function(UserId,ChannelId,Timestamp)
 	local Channel = Client:getChannel(ChannelId)
 	if Channel then
 		local M = Channel:send('Rape')
-		setTimeout(function() end,1000)
-		--sleep(5)
+		WinAPI.sleep(3)
 		if M then M:delete() end
 	end
 end)
