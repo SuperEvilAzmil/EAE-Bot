@@ -21,7 +21,7 @@ local Games = {
 local function RandomPlayGame()
 	sleep(15)
 	while true do
-		Client:setGame(Games[math.random(1,#Games)])
+		--Client:setGame(Games[math.random(1,#Games)])
 		local Time = math.random(5,120)
 		print('Time until the next Game: ' .. Time)
 		sleep(Time)
