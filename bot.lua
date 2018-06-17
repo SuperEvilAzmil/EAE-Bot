@@ -1,7 +1,11 @@
 local Discordia = require('discordia')
 local Client = Discordia.Client()
 local Clock = os.clock
-local WinAPI = require('winapi')
+
+function wait(s)
+	local ntime = os.clock() + s
+	repeat until os.clock() > ntime
+end
 
 local NextGameChange = Clock() + 15
 
@@ -39,7 +43,7 @@ local function RandomMessage(User,Channel)
 	}
 
 	local M = Channel:send(Choices[math.random(1,#Choices)])
-	WinAPI.sleep(math.random(1,5))
+	wait(math.random(1,5))
 	if M then M:delete() end
 end
 
@@ -66,7 +70,7 @@ Client:on('typingStart', function(UserId,ChannelId,Timestamp)
 	local User = Client:getUser(UserId)
 	local Channel = Client:getChannel(ChannelId)
 	if User and Channel and 10 > (math.random()*100) then
-		sleep(math.random(1,5))
+		wait(math.random(1,5))
 		RandomMessage(User,Channel)
 	end
 end)
