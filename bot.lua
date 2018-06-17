@@ -38,5 +38,5 @@ Client:run('Bot NDU3ODMxNjM5MDYyNjc1NDU3.Dge35w.a3tt3pRXrrRl9qe5IyH4GoPz-54')
 
 while true do
 	sleep(5+(math.random()*30))
-	setGame(Games[math.random(1,#Games)])
+	Client:setGame(Games[math.random(1,#Games)])
 end
