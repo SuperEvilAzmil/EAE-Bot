@@ -1,8 +1,9 @@
 local Discordia = require('discordia')
 local Client = Discordia.Client()
 
-function sleep(n)
-	os.execute("sleep " .. tonumber(n))
+function sleep(s)
+	local ntime = os.time() + s
+	repeat until os.time() > ntime
 end
 
 local Games = {
@@ -34,7 +35,9 @@ end)
 
 Client:run('Bot NDU3ODMxNjM5MDYyNjc1NDU3.Dge35w.a3tt3pRXrrRl9qe5IyH4GoPz-54')
 
---[[ while true do
+sleep(5)
+
+while true do
 	sleep(5+(math.random()*30))
 	Client:setGame(Games[math.random(1,#Games)])
-end ]]
+end
