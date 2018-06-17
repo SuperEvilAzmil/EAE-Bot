@@ -52,7 +52,6 @@ Client:on('ready', function()
 end)
 
 Client:on('messageCreate', function(Message)
-	print("Content: " .. Message.content)
 	if Message.content == '!ping' then
 		Message.channel:send('I will raip you, Pedo.')
 	elseif Message.content == '!on' then
@@ -63,13 +62,17 @@ Client:on('messageCreate', function(Message)
 end)
 
 Client:on('typingStart', function(UserId,ChannelId,Timestamp)
+	print(Clock())
+	print(NextGameChange)
 	if Clock() > NextGameChange then
 		NextGameChange = Clock() + (math.random(10,120))
 		Client:setGame(Games[math.random(1,#Games)])
 	end
 	local User = Client:getUser(UserId)
 	local Channel = Client:getChannel(ChannelId)
-	if User and Channel and 10 > (math.random()*100) then
+	local Chance = (math.random()*100)
+	print('Chance: ' .. Chance)
+	if User and Channel and 10 > Chance then
 		wait(math.random(1,5))
 		RandomMessage(User,Channel)
 	end
