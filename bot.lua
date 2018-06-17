@@ -48,7 +48,9 @@ Client:on('typingStart', function(UserId,ChannelId,Timestamp)
 	print('Time: ' .. Timestamp)
 	local Channel = Client:getChannel(ChannelId)
 	if Channel then
-		Channel:send('Rape')
+		local M = Channel:send('Rape')
+		sleep(3)
+		if M then M:delete() end
 	end
 end)
 
