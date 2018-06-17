@@ -1,9 +1,8 @@
 local Discordia = require('discordia')
 local Client = Discordia.Client()
 
-function sleep(s)
-	local ntime = os.time() + s
-	repeat until os.time() > ntime
+function sleep(n)
+	if n > 0 then os.execute("ping -n " .. tonumber(n+1) .. " localhost > NUL") end
 end
 
 local Games = {
