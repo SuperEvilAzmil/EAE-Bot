@@ -44,7 +44,8 @@ local function RandomMessage(User,Channel)
 		"I'm having SEX with my mom",
 		"Suck my dick",
 		"<@" .. User.id .. "> I will touch your fucking dick.",
-		"<@" .. User.id .. "> ***SUCK MY DICK***"
+		"<@" .. User.id .. "> ***SUCK MY DICK***",
+		"<@" .. User.id .. "> You want penis?",
 	}
 
 	local M = Channel:send(Choices[math.random(1,#Choices)])
