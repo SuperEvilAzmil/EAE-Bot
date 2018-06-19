@@ -20,7 +20,8 @@ local Games = {
 	"ZCR",
 	"BTSTUB",
 	"Raipei Simulator",
-	"with smoked Dick"
+	"with smoked Dick",
+	"Jelly Dildo"
 }
 
 local function RandomMessage(User,Channel)
@@ -47,13 +48,19 @@ local function RandomMessage(User,Channel)
 	}
 
 	local M = Channel:send(Choices[math.random(1,#Choices)])
-	wait(math.random(1,5))
-	if M then M:delete() end
+	--[[wait(math.random(1,5))
+	if M then M:delete() end]]
 end
 
 Client:on('ready', function()
 	print('Logged in as '.. Client.user.username)
 	Client:setGame(nil)
+	local Channel = Client:getChannel(ChannelId)
+	if Channel then
+		local M = Channel:send("https://t2.rbxcdn.com/486d351f809891f46a42428af3dad3e5")
+		wait(5)
+		if M then M:delete() end
+	end
 end)
 
 Client:on('messageCreate', function(Message)
@@ -77,7 +84,7 @@ Client:on('typingStart', function(UserId,ChannelId,Timestamp)
 	local Channel = Client:getChannel(ChannelId)
 	local Chance = (math.random()*100)
 	--print('Chance: ' .. Chance)
-	if User and Channel and 18 > Chance then
+	if User and Channel and 15 > Chance then
 		wait(math.random(1,5))
 		RandomMessage(User,Channel)
 	end
