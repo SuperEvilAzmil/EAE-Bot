@@ -56,9 +56,9 @@ end
 Client:on('ready', function()
 	print('Logged in as '.. Client.user.username)
 	Client:setGame(nil)
-	local Channel = Client:getChannel(228252059181383683)
+	local Channel = Client:getChannel('228252059181383683')
 	if Channel then
-		local M = Channel:send("https://t2.rbxcdn.com/486d351f809891f46a42428af3dad3e5")
+		local M = Channel:send('https://t2.rbxcdn.com/486d351f809891f46a42428af3dad3e5')
 		wait(5)
 		if M then M:delete() end
 	end
