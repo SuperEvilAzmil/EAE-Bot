@@ -29,23 +29,49 @@ local function RandomMessage(User,Channel)
 		"Rape",
 		"Penis",
 		"Vagina",
-		"<@" .. User.id .. "> Rape",
-		"<@" .. User.id .. "> ***RAPE***",
+		"Cum",
+		"Gay",
+		"Dick",
+		"Boob",
+		"Bullshit",
+		"Pedo",
+		"Boy",
+		"Girl",
+		"You're bullshit",
 		"I want rape",
 		"I heard you want rape",
-		"Cum",
+		"You are gay",
 		"**SEX**",
-		"<@" .. User.id .. "> **SEX**",
 		"Pei Pei",
 		"My penis hurt...",
 		"I have two penis. Deal with it.",
+		"I have a dick but my testis is missing",
 		"Where is my penis?",
-		"Bullshit",
 		"I'm having SEX with my mom",
+		"My dad gonna rape me harder",
+		"There's yogurt on the floor. Go lick it. It contain Vitamin.",
 		"Suck my dick",
+		"I smell a penis",
+		"Go fuck yourself",
+		"Are you looking for SEX? I'm here",
+		"Put your dick onto the bun. Now it's called **Hotdick**",
+		"I suck my own dick and testis. It's good and fine.",
+		"Who want SEX?",
+		"I can wait for anyone who wanting a SEX",
+		"**YOUR ASSHOLE, UGLY**",
+		"<@" .. User.id .. "> I know that you're going to be transgender. Let me touch your vagina.",
+		"<@" .. User.id .. "> **SEX**",
+		"<@" .. User.id .. "> Rape",
+		"<@" .. User.id .. "> **RAPE***",
 		"<@" .. User.id .. "> I will touch your fucking dick.",
-		"<@" .. User.id .. "> ***SUCK MY DICK***",
+		"<@" .. User.id .. "> **SUCK MY DIC***",
 		"<@" .. User.id .. "> You want penis?",
+		"<@" .. User.id .. "> You want SEX?",
+		"<@" .. User.id .. "> Is your Urine edible to drink?",
+		"<@" .. User.id .. "> **GIVE ME YOUR PENIS**",
+		"<@" .. User.id .. "> **I'M GONNA CUT OF YOUR PENIS**",
+		"<@" .. User.id .. "> Give me your jelly Dildo",
+		"<@" .. User.id .. "> You smell like a penis",
 	}
 
 	local M = Channel:send(Choices[math.random(1,#Choices)])
@@ -59,8 +85,8 @@ Client:on('ready', function()
 	local Channel = Client:getChannel('228252059181383683')
 	if Channel then
 		local M = Channel:send('https://t2.rbxcdn.com/486d351f809891f46a42428af3dad3e5')
-		wait(5)
-		if M then M:delete() end
+		--[[wait(5)
+		if M then M:delete() end]]
 	end
 end)
 
@@ -85,7 +111,7 @@ Client:on('typingStart', function(UserId,ChannelId,Timestamp)
 	local Channel = Client:getChannel(ChannelId)
 	local Chance = (math.random()*100)
 	--print('Chance: ' .. Chance)
-	if User and Channel and 15 > Chance then
+	if User and Channel and 5 > Chance then
 		wait(math.random(1,5))
 		RandomMessage(User,Channel)
 	end
