@@ -62,9 +62,9 @@ local function RandomMessage(User,Channel)
 		"<@" .. User.id .. "> I know that you're going to be transgender. Let me touch your vagina.",
 		"<@" .. User.id .. "> **SEX**",
 		"<@" .. User.id .. "> Rape",
-		"<@" .. User.id .. "> **RAPE***",
+		"<@" .. User.id .. "> **RAPE**",
 		"<@" .. User.id .. "> I will touch your fucking dick.",
-		"<@" .. User.id .. "> **SUCK MY DIC***",
+		"<@" .. User.id .. "> **SUCK MY DICK**",
 		"<@" .. User.id .. "> You want penis?",
 		"<@" .. User.id .. "> You want SEX?",
 		"<@" .. User.id .. "> Is your Urine edible to drink?",
@@ -111,7 +111,7 @@ Client:on('typingStart', function(UserId,ChannelId,Timestamp)
 	local Channel = Client:getChannel(ChannelId)
 	local Chance = (math.random()*100)
 	--print('Chance: ' .. Chance)
-	if User and Channel and 5 > Chance then
+	if User and Channel and 10 > Chance then
 		wait(math.random(1,5))
 		RandomMessage(User,Channel)
 	end
